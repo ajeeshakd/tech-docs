@@ -1,0 +1,104 @@
+version: '2'
+services:
+    zookeeper:
+        image: confluentinc/cp-zookeeper:7.4.0
+        hostname: zookeeper
+        container_name: zookeeper
+        restart: always
+        ports:
+            - "9999:9999"
+        volumes:
+        - ./zookeeper.sasl.jaas.config:/etc/kafka/zookeeper_server_jaas.conf
+        environment:
+            ZOOKEEPER_CLIENT_PORT: 2181
+            ZOOKEEPER_TICK_TIME: 2000
+            KAFKA_JMX_PORT: 9999
+            KAFKA_JMX_HOSTNAME: localhost
+            # for 5.4.x:
+            KAFKA_OPTS: -Dzookeeper.4lw.commands.whitelist=*
+            KAFKA_OPTS: -Djava.security.auth.login.config=/etc/kafka/zookeeper_server_jaas.conf
+                -Dzookeeper.authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
+                -Dzookeeper.allowSaslFailedClients=false
+                -Dzookeeper.requireClientAuthScheme=sasl
+
+
+ 
+
+    broker:
+        image: confluentinc/cp-kafka:7.4.0
+        hostname: broker
+        container_name: broker
+        restart: always
+        ports:
+          - "9092:9092"
+          - "29092:29092"
+          - "10000:10000"
+        volumes:
+          - ./kafka.jaas.conf:/etc/kafka/kafka_server_jaas.conf
+          - ./client.properties:/tmp/client.properties          
+
+        environment:
+            KAFKA_JMX_PORT: 10000
+            KAFKA_JMX_HOSTNAME: localhost
+            KAFKA_BROKER_ID: 1
+            KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+            KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: BROKER:SASL_PLAINTEXT,HOST:SASL_PLAINTEXT
+            KAFKA_LISTENERS: BROKER://:9092,HOST://:29092
+            KAFKA_ADVERTISED_HOST_NAME: localhost
+            KAFKA_ADVERTISED_LISTENERS: BROKER://broker:9092,HOST://localhost:29092
+            KAFKA_INTER_BROKER_LISTENER_NAME: BROKER
+            KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+              # Confluent Metrics Reporter for Control Center Cluster Monitoring
+            KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+            KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+              # # For Confluent Telemetry Reporter (proactive support)
+              # KAFKA_CONFLUENT_TELEMETRY_ENABLED: 'true'
+              # KAFKA_CONFLUENT_TELEMETRY_API_KEY: 'CLOUD_API_KEY'
+              # KAFKA_CONFLUENT_TELEMETRY_API_SECRET: 'CLOUD_API_SECRET'
+            KAFKA_LISTENER_NAME_BROKER_SASL_ENABLED_MECHANISMS: PLAIN
+            KAFKA_LISTENER_NAME_BROKER_PLAIN_SASL_JAAS_CONFIG: |
+                    org.apache.kafka.common.security.plain.PlainLoginModule required \
+                    username="broker" \
+                    password="broker" \
+                    user_broker="broker" \
+                    user_controlcenter="controlcenter-secret" \
+                    user_schemaregistry="schemaregistry-secret" \
+                    user_client="client-secret";
+            KAFKA_LISTENER_NAME_HOST_SASL_ENABLED_MECHANISMS: PLAIN
+            KAFKA_LISTENER_NAME_HOST_PLAIN_SASL_JAAS_CONFIG: |
+                    org.apache.kafka.common.security.plain.PlainLoginModule required \
+                    username="broker" \
+                    password="broker" \
+                    user_broker="broker" \
+                    user_controlcenter="controlcenter-secret" \
+                    user_schemaregistry="schemaregistry-secret" \
+                    user_client="client-secret";
+            KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: PLAIN
+            KAFKA_OPTS: "-Djava.security.auth.login.config=/etc/kafka/kafka_server_jaas.conf"
+
+ 
+
+    schema-registry:
+        image: confluentinc/cp-schema-registry:6.2.0
+        hostname: schema-registry
+        container_name: schema-registry
+        restart: always
+        depends_on:
+          - broker
+        ports:
+          - "8085:8085"
+          - "10001:10001"
+        volumes:
+          - ./client.properties:/tmp/client.properties
+        environment:
+            SCHEMA_REGISTRY_JMX_PORT: 10001
+            SCHEMA_REGISTRY_JMX_HOSTNAME: schema-registry
+            SCHEMA_REGISTRY_HOST_NAME: schema-registry
+            SCHEMA_REGISTRY_LISTENERS: "http://0.0.0.0:8085"
+            SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: broker:9092
+            SCHEMA_REGISTRY_SCHEMA_PROVIDERS_AVRO_VALIDATE_DEFAULTS: "true"
+            SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL: SASL_PLAINTEXT
+            SCHEMA_REGISTRY_KAFKASTORE_SASL_MECHANISM: PLAIN
+            SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG: "org.apache.kafka.common.security.plain.PlainLoginModule required \
+                username=\"schemaregistry\" \
+                password=\"schemaregistry-secret\";"

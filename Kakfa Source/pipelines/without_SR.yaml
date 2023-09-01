@@ -1,0 +1,25 @@
+log-pipeline:
+  source:
+    kafka:
+      bootstrap_servers:
+        - localhost:9092
+      topics:
+        - name: kafka-json-new
+          workers: 5
+          auto_commit: false
+          auto_commit_interval: PT5S
+          session_timeout: 45000
+          max_retry_attempts: 1000
+          auto_offset_reset: earliest
+          thread_waiting_time: PT1S
+          max_record_fetch_time: PT4S
+          heart_beat_interval: PT3S
+          buffer_default_timeout: PT5S
+          fetch_max_bytes: 52428800
+          fetch_max_wait: 500
+          fetch_min_bytes: 1
+          retry_backoff: PT100S
+          consumer_max_poll_records: 500
+      serde_format: json
+  sink:
+    - stdout:

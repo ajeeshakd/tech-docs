@@ -1,0 +1,8 @@
+curl --location 'http://localhost:8085/subjects/kafka-avro-test-value/versions' \
+--header 'Content-Type: application/json' \
+--data '{
+
+"schema": "{\"type\":\"record\",\"name\":\"Example\",\"namespace\":\"org.opensearch.dataprepper.plugins.kafka.avro\",\"fields\":[{\"name\":\"field1\",\"type\":\"string\"}]}"
+}
+
+'

@@ -1,0 +1,4 @@
+
+1. Add your confluent connection details in the client.properties file.
+2. Before running the sample producer program make sure that the kafka server is running locally except for the Confluent schema registry.
+3. Sample producer program which runs locally on the Kafka server port is 9092. If you want to make a change to the port, plz do the change in the Java source file.

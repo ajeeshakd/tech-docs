@@ -1,0 +1,29 @@
+
+g	java:S112>"FDefine and throw a dedicated exception instead of using a generic one.(«É™êıÿÿÿÿ8¡ñ¦í˜1
+L
+java:S3740C"/Provide the parametrized type for this generic.(×¨•8£ñ¦í˜1
+v
+java:S2293T"YReplace the type specification in this constructor call with the diamond operator ("<>").(¸¯¶Ë8¤ñ¦í˜1
+J
+java:S1604\"(Make this anonymous inner class a lambda(øÌÜöøÿÿÿÿ8¦ñ¦í˜1
+v	java:S115#"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¡Àíœ8ßñ¦í˜1
+€
+java:S1450""cRemove the "schemaRegistryClient" field and declare it as a local variable in the relevant methods.(³²â¢8ãñ¦í˜1
+x
+java:S1450$"[Remove the "stringSchema" field and declare it as a local variable in the relevant methods.(ãø”œ8äñ¦í˜1
+`
+java:S18748"DRemove this use of "AbstractKafkaAvroSerDeConfig"; it is deprecated.(†îà~8ıñ¦í˜1
+Z	java:S1069"9Replace this use of System.out or System.err by a logger.(Ö”Èèøÿÿÿÿ8şñ¦í˜1
+C
+java:S1905D"&Remove this unnecessary cast to "Map".(«Ë‹è8‹ò¦í˜1
+š
+java:S3252F"xUse static access with "io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig" for "SCHEMA_REGISTRY_URL_CONFIG".(©¾ĞÌÿÿÿÿÿ8ò¦í˜1
+O
+java:S1874I"-Remove this use of "parse"; it is deprecated.(¼ü¸´úÿÿÿÿ8‘ò¦í˜1
+Z	java:S106R"9Replace this use of System.out or System.err by a logger.(Õ¶Ú†úÿÿÿÿ8™ò¦í˜1
+U	java:S106b"9Replace this use of System.out or System.err by a logger.(Ñ”¸8¢ò¦í˜1
+U	java:S106i"9Replace this use of System.out or System.err by a logger.(Ğï½İ8¤ò¦í˜1
+W
+java:S6213r":Rename this variable to not match a restricted identifier.(¸¤Õ«8¨ò¦í˜1
+Z	java:S106s"9Replace this use of System.out or System.err by a logger.(æÍ¢Ùøÿÿÿÿ8©ò¦í˜1
+Z	java:S106x"9Replace this use of System.out or System.err by a logger.(‚ŞÏ¥ıÿÿÿÿ8«ò¦í˜1

@@ -1,0 +1,63 @@
+log-pipeline:
+  source:
+    kafka:
+      bootstrap_servers:
+        - pkc-ymrq7.us-east-2.aws.confluent.cloud:9092
+      client_dns_lookup: use_all_dns_ips
+      encryption: plaintext
+      topics:
+        - name: topic-json
+          workers: 5
+          auto_commit: false
+          auto_commit_interval: PT5S
+          session_timeout: 45000
+          max_retry_attempts: 1000
+          auto_offset_reset: earliest
+          thread_waiting_time: PT1S
+          max_record_fetch_time: PT4S
+          heart_beat_interval: PT3S
+          buffer_default_timeout: PT5S
+          fetch_max_bytes: 52428800
+          fetch_max_wait: 500
+          fetch_min_bytes: 1
+          retry_backoff: PT100S
+          consumer_max_poll_records: 500
+      schema:
+        registry_url: https://psrc-em82q.us-east-2.aws.confluent.cloud
+        version: 1
+        schema_registry_api_key: 7QV2UXHRVNOC6AJD
+        schema_registry_api_secret: 6M9xLZDIfmyBN9cqNm2n9GU23mleiaIHJWqQeA5P4JY/LyShaRqPuLJw0XhQQ1pD
+        basic_auth_credentials_source: USER_INFO
+        session_timeout_ms: 45000
+      aws:
+        msk:
+          arn: service_arn
+          broker_connection_type: public
+        region: us-east-2
+        sts_role_arn: sts_role_arn       
+      authentication:
+        insecure: true/false
+        sasl:
+          msk_iam: role
+          plaintext:
+            security_protocol: SASL_SSL
+            username: 5UH4NID4OENKDIBI
+            password: jCmncn77F9asfox3yhgZLCEwQ5fx8pKiXnszMqdt0y1GLrdZO1V1iz95aIe1UubX
+          oauth:
+            oauth_client_id: 0oa9wc21447Pc5vsV5d7
+            oauth_client_secret: aGmOfHqIEvBJGDxXAOOcatiE9PvsPgoEePx8IPPa
+            oauth_login_server: https://dev-13650048.okta.com
+            oauth_login_endpoint: /oauth2/default/v1/token
+            oauth_login_grant_type: refresh_token
+            oauth_login_scope: kafka
+            oauth_introspect_server: https://dev-13650048.okta.com
+            oauth_introspect_endpoint: /oauth2/default/v1/introspect
+            oauth_token_endpoint_url: https://dev-13650048.okta.com/oauth2/default/v1/token
+            oauth_security_protocol: SASL_SSL
+            oauth_sasl_mechanism: OAUTHBEARER
+            oauth_sasl_login_callback_handler_class: org.apache.kafka.common.security.oauthbearer.secured.OAuthBearerLoginCallbackHandler
+            oauth_jwks_endpoint_url: https://dev-13650048.okta.com/oauth2/default/v1/keys
+            extension_logicalCluster: lkc-yggz7j
+            extension_identityPoolId: pool-RXzn
+  sink:
+    - stdout:

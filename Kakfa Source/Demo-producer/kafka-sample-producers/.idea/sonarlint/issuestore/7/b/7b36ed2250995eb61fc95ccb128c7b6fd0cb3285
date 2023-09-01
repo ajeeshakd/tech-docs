@@ -1,0 +1,13 @@
+
+{
+java:S2293F"YReplace the type specification in this constructor call with the diamond operator ("<>").(ı´‚éûÿÿÿÿ8ÇÛ‰í˜1
+>
+java:S1604J"(Make this anonymous inner class a lambda(õ‘Ë·
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(œˆ×†
+S	java:S106E"9Replace this use of System.out or System.err by a logger.(Õ¶Ú†úÿÿÿÿ
+N	java:S106P"9Replace this use of System.out or System.err by a logger.(Ñ”¸
+N	java:S106T"9Replace this use of System.out or System.err by a logger.(Ğï½İ
+O
+java:S6213]":Rename this variable to not match a restricted identifier.(ÊĞŒ4
+S	java:S106^"9Replace this use of System.out or System.err by a logger.(æÍ¢Ùøÿÿÿÿ
+S	java:S106c"9Replace this use of System.out or System.err by a logger.(‚ŞÏ¥ıÿÿÿÿ

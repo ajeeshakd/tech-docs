@@ -1,0 +1,11 @@
+
+h
+java:S2095("KUse try-with-resources or close this "KafkaProducer" in a "finally" clause.(à8¼¼¡í˜1
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(èß¸†ùÿÿÿÿ8¾¼¡í˜1
+G
+java:S1197#"*Move the array designators [] to the type.(Š»á8Å¼¡í˜1
+W	java:S125-"<This block of commented-out lines of code should be removed.(”ÓµM8É¼¡í˜1
+U	java:S106/"9Replace this use of System.out or System.err by a logger.(˜½–„8Ê¼¡í˜1
+:
+java:S2119:"Save and re-use this "Random".(¼İÅf8Ì¼¡í˜1

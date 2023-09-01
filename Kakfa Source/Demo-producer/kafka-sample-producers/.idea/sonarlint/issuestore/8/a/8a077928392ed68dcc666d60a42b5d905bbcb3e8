@@ -1,0 +1,9 @@
+
+S	java:S106>"9Replace this use of System.out or System.err by a logger.(Õ¶Ú†úÿÿÿÿ
+N	java:S106@"9Replace this use of System.out or System.err by a logger.(Ðï½Ý
+U
+java:S6213I":Rename this variable to not match a restricted identifier.(´Å£Ÿýÿÿÿÿ
+S	java:S106J"9Replace this use of System.out or System.err by a logger.(æÍ¢Ùøÿÿÿÿ
+S	java:S106O"9Replace this use of System.out or System.err by a logger.(‚ÞÏ¥ýÿÿÿÿ
+K
+java:S1068")Remove this unused "props" private field.(åÄðïýÿÿÿÿ8£ì¨í˜1

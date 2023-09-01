@@ -1,0 +1,8 @@
+Schema Registry API Usage Examples
+==================================
+https://docs.confluent.io/platform/current/schema-registry/develop/using.html#suggested-reading
+
+
+Schema Registry Tutorial (How to create a schema etc.)
+======================================================
+https://docs.confluent.io/platform/current/schema-registry/schema_registry_onprem_tutorial.html#schema-ids-in-messages

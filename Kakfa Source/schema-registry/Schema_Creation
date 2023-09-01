@@ -1,0 +1,15 @@
+
+JSON SCHEMA
+==============
+{
+"schemaType": "JSON",
+"schema": "{\"type\": \"object\",\"properties\": {\"name\": {\"type\": \"string\"}},\"required\": [\"name\"]}"
+}
+
+AVRO SCHEMA
+===========
+{
+
+"schema": "{\"type\":\"record\",\"name\":\"Example\",\"namespace\":\"org.opensearch.dataprepper.plugins.kafka.avro\",\"fields\":[{\"name\":\"field1\",\"type\":\"string\"}]}"
+}
+

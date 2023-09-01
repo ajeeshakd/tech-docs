@@ -1,0 +1,17 @@
+
+v
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(óã‘Þ8à‰í˜1
+>
+java:S1604"(Make this anonymous inner class a lambda(õ‘Ë·
+h
+java:S2095"KUse try-with-resources or close this "KafkaProducer" in a "finally" clause.(á÷žÝ8¯à‰í˜1
+E
+java:S1197"*Move the array designators [] to the type.(¡þÏÖøÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(£ÂÜ
+Q	java:S125"<This block of commented-out lines of code should be removed.(°ÈäÔ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Õ¶Ú†úÿÿÿÿ
+V	java:S125$"<This block of commented-out lines of code should be removed.(ß±ë€øÿÿÿÿ
+N	java:S106("9Replace this use of System.out or System.err by a logger.(Ðï½Ý
+3
+java:S21199"Save and re-use this "Random".(¼ÝÅf
+Q	java:S125K"<This block of commented-out lines of code should be removed.(´ä©Ã

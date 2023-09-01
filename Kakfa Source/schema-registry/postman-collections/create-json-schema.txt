@@ -1,0 +1,8 @@
+curl --location 'http://localhost:8085/subjects/kafka-json-value/versions' \
+--header 'Content-Type: application/json' \
+--data '{
+"schemaType": "JSON",
+"schema": "{\"type\": \"object\",\"properties\": {\"name\": {\"type\": \"string\"}},\"required\": [\"name\"]}"
+}
+
+'

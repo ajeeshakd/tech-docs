@@ -1,0 +1,13 @@
+
+E
+java:S3740"/Provide the parametrized type for this generic.(’‹èﬂ
+`
+java:S2095"KUse try-with-resources or close this "KafkaProducer" in a "finally" clause.(À‡ÕJ
+V	java:S125"<This block of commented-out lines of code should be removed.(ÉÎÀ∂¸ˇˇˇˇ
+P
+java:S6213":Rename this variable to not match a restricted identifier.(’‹èﬂ
+M	java:S106!"9Replace this use of System.out or System.err by a logger.(∏Ï§D
+S	java:S106&"9Replace this use of System.out or System.err by a logger.(ÂáÀ∂¸ˇˇˇˇ
+3
+java:S21194"Save and re-use this "Random".(º›≈f
+Q	java:S125F"<This block of commented-out lines of code should be removed.(¥‰©√
